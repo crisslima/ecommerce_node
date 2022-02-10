@@ -1,5 +1,5 @@
 import IClientDTO from "modules/clients/dtos/IClientDTO";
-import IClientRepository from "modules/clients/repositories/IClientRepository";
+import IClientRepository from "../../../../clients/repositories/IClientRepository";
 import { DeleteResult, getRepository, Repository } from "typeorm";
 import Client from "../entities/Client";
 
@@ -26,6 +26,16 @@ export default class ClientRepository implements IClientRepository {
 
   async findById(id: number): Promise<Client | undefined> {
     const client = await this.ormRepository.findOne(id);
+
+    return client;
+  }
+
+  async findByCpf(cpf: string): Promise<Client | undefined> {
+    const client = await this.ormRepository.findOne({
+      where: {
+        cpf,
+      },
+    });
 
     return client;
   }

@@ -34,6 +34,7 @@ export default class CreateClients1641853995392 implements MigrationInterface {
             type: "varchar",
             length: "20",
             isNullable: true,
+            isUnique: true,
           },
           {
             name: "data_nascimento",

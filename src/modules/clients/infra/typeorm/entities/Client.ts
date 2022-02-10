@@ -18,10 +18,10 @@ export default class Client {
   email: string;
 
   @Column()
-  cpf: string;
-
-  @Column()
   telefone: string;
+
+  @Column({ unique: true })
+  cpf: string;
 
   @Column()
   data_nascimento: string;
@@ -32,3 +32,4 @@ export default class Client {
   @UpdateDateColumn()
   updated_at: Date;
 }
+/* criar relacionamento igual categoria e produto*/

@@ -31,7 +31,7 @@ export class CreateProducts1643141637234 implements MigrationInterface {
             isNullable: false,
           },
           {
-            name: "quantidade",
+            name: "quantidade_estoque",
             type: "int",
             isNullable: false,
           },

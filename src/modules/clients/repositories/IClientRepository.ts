@@ -16,6 +16,7 @@ export default interface IClientRepository {
   findById(id: number): Promise<Client | undefined>;
   update(data: IClientDTO): Promise<Client>;
   delete(id: number): Promise<DeleteResult>;
+  findByCpf(cpf: string): Promise<Client | undefined>;
 
   // fazer outros médodos aqui
 }

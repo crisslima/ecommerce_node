@@ -1,4 +1,4 @@
-import Product from "modules/product/infra/typeorm/entities/Product";
+import Product from "../../../../product/infra/typeorm/entities/Product";
 import {
   Column,
   CreateDateColumn,
@@ -9,7 +9,7 @@ import {
 } from "typeorm";
 
 @Entity("categorias")
-export default class Client {
+export default class Category {
   @PrimaryGeneratedColumn("increment")
   id: number;
 

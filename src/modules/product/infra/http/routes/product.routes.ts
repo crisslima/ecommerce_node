@@ -4,7 +4,7 @@ import ProductController from "../controllers/ProductController";
 const routes = Router();
 
 /**
- * Define todas as rotas de clientes
+ * Define todas as rotas de Produtos
  */
 
 routes.post("/", ProductController.create);

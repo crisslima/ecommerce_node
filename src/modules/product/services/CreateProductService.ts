@@ -19,9 +19,9 @@ export default class CreateProductService {
     const productRepository = new ProductRepository();
 
     if (data.id) {
-      throw new AppError("ID não deve ser enviado no cadastro");
+      throw new AppError("O id do pedido não deve ser enviado no cadastro.");
     }
-
+    
     const product = await productRepository.create(data);
 
     return product;

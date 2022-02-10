@@ -1,6 +1,4 @@
 import { DeleteResult } from "typeorm";
-import AppError from "../../../shared/errors/AppErrors";
-import Client from "../infra/typeorm/entities/Client";
 import ClientRepository from "../infra/typeorm/repositories/ClientRepository";
 import FindClientByIdService from "./FindClientByIdService";
 

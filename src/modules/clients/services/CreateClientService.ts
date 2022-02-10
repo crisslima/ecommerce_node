@@ -1,7 +1,10 @@
+import FindAllCategoriesService from "modules/category/services/FindAllCategoriesService";
 import AppError from "../../../shared/errors/AppErrors";
 import IClientDTO from "../dtos/IClientDTO";
 import Client from "../infra/typeorm/entities/Client";
 import ClientRepository from "../infra/typeorm/repositories/ClientRepository";
+import FindAllClientsService from "./FindAllClientsService";
+import FindClientByCpfService from "./FindClientByCpfService";
 
 /**
  * O service terá toda a regra de negócio. Cada service é responsável por
@@ -17,9 +20,23 @@ import ClientRepository from "../infra/typeorm/repositories/ClientRepository";
 export default class CreateClientService {
   public async execute(data: IClientDTO): Promise<Client> {
     const clientRepository = new ClientRepository();
+    const findAllClientsService = new FindAllClientsService();
+    const findClientByCpfService = new FindClientByCpfService();
+
+    let listaClientes = await findAllClientsService.execute();
+
+    // const clientExist = await clientRepository.findByCpf(data.cpf);
+
+    // // for (let i = 0; i < listaClientes.length; i++) {
+    //   if (clientExist) {
+    //     throw new AppError("Cpf já está cadastrado.");
+    //   }
+
+    await findClientByCpfService.execute(data.cpf);
+    // }
 
     if (data.id) {
-      throw new AppError("ID não deve ser enviado no cadastro");
+      throw new AppError("Id do Cliente não deve ser enviado no cadastro");
     }
 
     const client = await clientRepository.create(data);

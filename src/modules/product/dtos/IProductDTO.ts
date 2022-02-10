@@ -1,5 +1,5 @@
 /**
- * Interface que define a tipagem de um cliente
+ * Interface que define a tipagem de um produto
  */
 export default interface IProductDTO {
   id?: number; // id é opcional (no cadastro não precisa, mas na ediçao sim)
